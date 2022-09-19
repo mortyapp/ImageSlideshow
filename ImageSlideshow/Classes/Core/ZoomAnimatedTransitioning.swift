@@ -16,11 +16,11 @@ open class ZoomAnimatedTransitioningDelegate: NSObject, UIViewControllerTransiti
     open weak var referenceSlideshowView: ImageSlideshow?
 
     // must be weak because FullScreenSlideshowViewController has strong reference to its transitioning delegate
-    weak var referenceSlideshowController: FullScreenSlideshowViewController?
+    open weak var referenceSlideshowController: FullScreenSlideshowViewController?
 
-    var referenceSlideshowViewFrame: CGRect?
-    var gestureRecognizer: UIPanGestureRecognizer!
-    fileprivate var interactionController: UIPercentDrivenInteractiveTransition?
+    open var referenceSlideshowViewFrame: CGRect?
+    open var gestureRecognizer: UIPanGestureRecognizer!
+    open var interactionController: UIPercentDrivenInteractiveTransition?
 
     /// Enables or disables swipe-to-dismiss interactive transition
     open var slideToDismissEnabled: Bool = true
@@ -61,7 +61,7 @@ open class ZoomAnimatedTransitioningDelegate: NSObject, UIViewControllerTransiti
         UIApplication.shared.keyWindow?.addGestureRecognizer(gestureRecognizer)
     }
 
-    func handleSwipe(_ gesture: UIPanGestureRecognizer) {
+    open func handleSwipe(_ gesture: UIPanGestureRecognizer) {
         guard let referenceSlideshowController = referenceSlideshowController else {
             return
         }
